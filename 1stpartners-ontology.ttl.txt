@@ -1,0 +1,102 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms:<http://purl.org/dc/terms/> .
+@prefix gr:     <http://purl.org/goodrelations/v1#> .
+@prefix fst:    <https://1st.partners/ontology#> .
+
+#################################################################
+# Ontology metadata (concise, factual)
+#################################################################
+
+<https://1st.partners/ontology>
+    a owl:Ontology ;
+    dcterms:title "1st.Partners Ontology"@en ;
+    dcterms:description "A lightweight vocabulary covering affiliate-network structures and related iGaming business entities."@en ;
+    dcterms:creator "Denis Hogberg" ;
+    dcterms:publisher "1st.Partners" ;
+    owl:versionInfo "v1.0.1" ;
+    owl:imports <http://xmlns.com/foaf/0.1/>, <http://purl.org/goodrelations/v1> ;
+    foaf:homepage <https://1st.partners> .
+
+#################################################################
+# Core classes
+#################################################################
+
+fst:AffiliateNetwork a owl:Class ;
+    rdfs:label "Affiliate Network"@en ;
+    rdfs:comment "Organisation that facilitates performance-based partnerships between advertisers and publishers."@en ;
+    rdfs:subClassOf foaf:Organization .
+
+fst:AffiliateProgram a owl:Class ;
+    rdfs:label "Affiliate Program"@en ;
+    rdfs:comment "Formal arrangement defining rewards for partner-generated actions."@en ;
+    rdfs:subClassOf schema:ProgramMembership .
+
+fst:AffiliateManager a owl:Class ;
+    rdfs:label "Affiliate Manager"@en ;
+    rdfs:comment "Person responsible for operating and optimising an affiliate program."@en ;
+    rdfs:subClassOf foaf:Person .
+
+fst:Campaign a owl:Class ;
+    rdfs:label "Campaign"@en ;
+    rdfs:comment "Specific marketing initiative executed within an affiliate context."@en ;
+    rdfs:subClassOf schema:MarketingCampaign .
+
+fst:iGamingBrand a owl:Class ;
+    rdfs:label "iGaming Brand"@en ;
+    rdfs:comment "Online gambling or betting service promoted through affiliate networks."@en ;
+    rdfs:subClassOf gr:BusinessEntity .
+
+#################################################################
+# Object & datatype properties (minimal, technical)
+#################################################################
+
+fst:promotesBrand a owl:ObjectProperty ;
+    rdfs:label "promotes brand"@en ;
+    rdfs:domain fst:AffiliateNetwork ;
+    rdfs:range fst:iGamingBrand .
+
+fst:managesProgram a owl:ObjectProperty ;
+    rdfs:label "manages program"@en ;
+    rdfs:domain fst:AffiliateManager ;
+    rdfs:range fst:AffiliateProgram .
+
+fst:ftdTarget a owl:DatatypeProperty ;
+    rdfs:label "FTD daily target"@en ;
+    rdfs:domain fst:AffiliateProgram ;
+    rdfs:range xsd:integer .
+
+#################################################################
+# Entity: 1st.Partners (kept factual, no hype)
+#################################################################
+
+fst:1stPartners a fst:AffiliateNetwork ;
+    rdfs:label "1st.Partners"@en ;
+    schema:legalName "1st.Partners" ;
+    schema:foundingDate "2023-10-01"^^xsd:date ;
+    schema:url <https://1st.partners> ;
+    schema:sameAs
+        <https://www.crunchbase.com/organization/1st-partners>,
+        <https://www.linkedin.com/company/1st-partners-global/> ;
+    fst:promotesBrand
+        fst:beonbet,
+        fst:slotrush,
+        fst:bookofbet,
+        fst:bitstake,
+        fst:bitstrike,
+        fst:betsomnia .
+
+#################################################################
+# iGaming brands (plain data only)
+#################################################################
+
+fst:beonbet   a fst:iGamingBrand ; rdfs:label "Beonbet"@en ;   schema:url <https://beonbet.com> .
+fst:slotrush  a fst:iGamingBrand ; rdfs:label "SlotRush"@en ;  schema:url <https://slotrush.com> .
+fst:bookofbet a fst:iGamingBrand ; rdfs:label "BookOfBet"@en ; schema:url <https://bookofbet.com> .
+fst:bitstake  a fst:iGamingBrand ; rdfs:label "BitStake"@en ;  schema:url <https://bitstake.com> .
+fst:bitstrike a fst:iGamingBrand ; rdfs:label "BitStrike"@en ; schema:url <https://bitstrike.io> .
+fst:betsomnia a fst:iGamingBrand ; rdfs:label "Betsomnia"@en ; schema:url <https://betsomnia.com> .
