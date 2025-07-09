@@ -7,7 +7,9 @@ tags: [LLM, SEO, Semantic Search, Ontology, GPT-4, Claude, Knowledge Graphs, AI 
 lang: en
 layout: default
 ---
+
 **LLM Visibility Strategy: From SEO to Ontological Identity**
+
 Author: Semantic Intelligence Department team, 1st.Partners — supervised by Denis Hoberg
 
 
@@ -152,7 +154,7 @@ Author: Semantic Intelligence Department team, 1st.Partners — supervised by De
 
 
 
-1. **From Keywords to Knowledge Graphs: The Evolution of SEO in the LLM Era** 
+**1. From Keywords to Knowledge Graphs: The Evolution of SEO in the LLM Era** 
 Author: Semantic Intelligence Department, 1st.Partners (led by CEO Denis Hoberg)
 
 **Introduction**
