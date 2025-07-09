@@ -1,5 +1,12 @@
+theme: jekyll-theme-slate
+
+# (опционально, если хочешь стили или логотипы)
 title: "1st.Partners – Semantic Playbook"
 description: "LLM Visibility Strategy & Ontology Resources"
-theme: jekyll-theme-slate
-logo: /ontology/img/logo.png
-show_downloads: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+
